@@ -1,0 +1,101 @@
+    /* Welcome Section Styling */
+  .welcome-section {
+    text-align: center;
+    padding: 100px 20px 40px;
+    background-color: #ffffff;
+    margin-top: 60px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .welcome-section h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #333333;
+  }
+  
+  .welcome-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #666666;
+  }
+  
+  .browse-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #ffbb13;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .browse-btn:hover {
+    background-color: #e6a50e;
+  }
+  
+  /* Job Listings Section */
+  .job-listings {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .job-listings h2 {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .job-card {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .job-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .job-card h3 {
+    font-size: 20px;
+    color: #333333;
+    margin-bottom: 5px;
+  }
+  
+  .job-card p {
+    font-size: 14px;
+    color: #666666;
+  }
+  
+  .job-card strong {
+    color: #ff0000;
+  }
+  
+  .apply-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #ffbb13;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .apply-btn:hover {
+    background-color: #e6a50e;
+  }
+  
+  /* For Consistency: Modify Existing Buttons */
+  .login-btn:hover, .register-btn:hover {
+    background-color: #e6a50e;
+  }

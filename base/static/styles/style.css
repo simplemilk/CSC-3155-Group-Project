@@ -1,0 +1,135 @@
+/* Resetting default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Header Styling */
+.header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px;
+background-color: #ffffff;
+width: 100%;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+position: fixed;
+top: 0;
+left: 0;
+}
+
+.nav-links {
+display: flex;
+}
+
+.nav-links a {
+margin: 0 10px;
+color: #ffbb13;
+font-weight: bold;
+text-decoration: none;
+font-size: 14px;
+}
+
+.nav-links a:hover {
+text-decoration: underline;
+}
+
+.logo-container .logo {
+width: 150px;
+height: auto;
+}
+
+.login-container, .register-container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+}
+
+h2 {
+  margin-bottom: 1em;
+  color: #333333;
+}
+
+.input-group {
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  color: #333333;
+  margin-bottom: 4px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9fafb;
+}
+
+.login-btn, .register-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #ffbb13;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #ffbb13;
+}
+
+.register-link, .login-link {
+  margin-top: 1em;
+  font-size: 14px;
+  color: #666666;
+}
+
+.register-link a, .login-link a {
+  color: #ffbb13;
+  text-decoration: none;
+}
+
+.register-link a:hover, .login-link a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+  

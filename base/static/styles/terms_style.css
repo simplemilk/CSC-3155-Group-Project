@@ -1,0 +1,75 @@
+/* General Container Styling for Terms_Service Page */
+
+.container {
+    margin-top: 20px;
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 700px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 30px auto;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.container h1, 
+.container h2, 
+.container p {
+    text-align: center;
+}
+
+/* List Styling */
+.container ul {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Heading Styles */
+.container h1 {
+    font-size: 28px;
+    color: #333333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.container h2 {
+    font-size: 20px;
+    color: #333333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Paragraph Styles */
+.container p {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 1em;
+}
+
+/* Highlighted Text (Date, Subheadings) */
+.container p strong {
+    color: #333333;
+    font-weight: bold;
+}
+
+/* List Styling */
+.container ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #666666;
+}
+
+.container ul li {
+    margin-bottom: 0.5em;
+}
+
+/* Link Styling */
+.container a {
+    color: #ffbb13;
+    text-decoration: none;
+}
+
+.container a:hover {
+    text-decoration: underline;
+}
