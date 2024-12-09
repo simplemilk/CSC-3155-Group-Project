@@ -12,6 +12,7 @@ class Joblisting(models.Model):
     RequiredQual = models.TextField(null=True, blank=True)
     Salary = models.CharField(max_length=50, null=True, blank=True)
     AboutC = models.TextField(null=True, blank=True)
+    Prediction = models.CharField(null=True, blank=True)
     
     def __str__(self):
         return self.Title
