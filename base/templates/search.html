@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeApply - Job Search</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/search_style.css' %}">
+</head>
+<body>
+  <!-- Search Page Container -->
+  <div class="search-container">
+    <!-- Logo -->
+    <div class="logo-container">
+      <img src="{% static 'images/SafeApplyLogo.png' %}" alt="SafeApply Logo" class="logo">
+    </div>
+
+    <!-- Search Bar Section -->
+    <h2>Find Your Next Job</h2>
+    <form class="search-form" method="get" action="#">
+      <div class="input-group">
+        <label for="keywords">Job Title, Keywords</label>
+        <input type="text" id="keywords" placeholder="e.g., Software Developer, Marketing">
+      </div>
+      
+      <div class="input-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" placeholder="e.g., New York, Remote">
+      </div>
+      
+      <button type="submit" class="btn search-btn">Search</button>
+    </form>
+
+    <!-- Results Section -->
+    <div class="results">
+      <h3>Job Results</h3>
+      <!-- Sample Job Cards -->
+      <div class="job-card">
+        <h4>Software Developer</h4>
+        <p><strong>Company:</strong> Tech Solutions Inc.</p>
+        <p><strong>Location:</strong> Remote</p>
+        <p><strong>Status:</strong> <span class="status-flag">Potentially Fake</span></p>
+        <button class="btn apply-btn">Apply Now</button>
+      </div>
+
+      <div class="job-card">
+        <h4>Marketing Specialist</h4>
+        <p><strong>Company:</strong> Creative Media Ltd.</p>
+        <p><strong>Location:</strong> New York</p>
+        <p><strong>Status:</strong> Verified</p>
+        <button class="btn apply-btn">Apply Now</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeApply - Home</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home_style.css' %}">
+</head>
+<body>
+  <!-- Header with Logo -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="{% static 'images/SafeApplyLogo.png' %}" alt="SafeApply Logo" class="logo">
+    </div>
+    <nav class="nav-links">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'search' %}">Browse Jobs</a>
+      <a href="#">Flagged Jobs</a>
+      <a href="#">Profile</a>
+      <a href="{% url 'main' %}">Log Out</a>
+    </nav>
+  </header>
+  
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <h1>Welcome to SafeApply</h1>
+    <p>Your trusted platform to find legitimate job opportunities and avoid fake recruiters.</p>
+    <a href="{% url 'search' %}" class="browse-btn">Browse Jobs</a>
+  </section>
+  
+  <footer>
+    <nav>
+      <P>Contact info: SafeApply.contact@gmail.com</P>
+      <a href="{% url 'terms_service' %}">Terms of service</a>
+    </nav>
+    </footer>
+    
+  </body>
+  
+  </html>
