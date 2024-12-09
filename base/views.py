@@ -9,13 +9,11 @@ from django.http import HttpResponse
 import pandas as pd
 from django.db.models import Q
 from io import StringIO
-import logging
-
-logger = logging.getLogger(__name__)
 
 def landing(request):
     return render(request, 'landing.html')
 
+@login_required
 def home(request):
     return render(request, 'home.html')
 
@@ -27,78 +25,78 @@ def register(request):
 
 @login_required
 def search(request):
-    # q = request.GET.get('q') if request.GET.get('q') != None else ''
-
-    # # Get initial queryset from database search
-    # listings = Joblisting.objects.filter(
-    #     Q(Title__icontains=q) |
-    #     Q(Company__icontains=q) |
-    #     Q(Location__icontains=q) |
-    #     Q(JobRequirement__icontains=q) |
-    #     Q(RequiredQual__icontains=q) |
-    #     Q(Salary__icontains=q)
-    # )
-
-    # # Get all data including id (for our reference) and jobpost
-    # full_df = pd.DataFrame.from_records(
-    #     listings.values(
-    #         'id', 'jobpost', 'Title', 'Company', 'StartDate', 'Duration', 'Location',
-    #         'JobDescription', 'JobRequirement', 'RequiredQual', 
-    #         'Salary', 'AboutC'
-    #     )
-    # )
-
-    # if not full_df.empty:
-    #     # Create a new DataFrame with only the columns the model expects
-    #     model_df = full_df[['jobpost', 'Title', 'Company', 'StartDate', 'Duration', 'Location',
-    #                        'JobDescription', 'JobRequirement', 'RequiredQual',
-    #                         'Salary', 'AboutC']]
-
-    #     # Convert DataFrame to CSV string
-    #     csv_buffer = StringIO()
-    #     model_df.to_csv(csv_buffer, index=False)
-    #     csv_data = csv_buffer.getvalue()
-
-    #     # Get predictions from AI model
-    #     result_csv = predict_job_listings(csv_data)
-
-    #     # Convert result CSV back to DataFrame
-    #     result_df = pd.read_csv(StringIO(result_csv))
-
-    # # Update Prediction field in database for each listing
-    # for index, row in result_df.iterrows():
-    #     listing_id = full_df.iloc[index]['id'] # Convert to string since Prediction field is CharField
-    #     prediction = str(row['prediction'])
-    #     Joblisting.objects.filter(id=listing_id).update(Prediction=prediction)
-
-    # # Get fresh listings from database with updated predictions
-    # updated_listings = Joblisting.objects.filter(
-    #     Q(Title__icontains=q) |
-    #     Q(Company__icontains=q) |
-    #     Q(Location__icontains=q) |
-    #     Q(JobRequirement__icontains=q) |
-    #     Q(RequiredQual__icontains=q) |
-    #     Q(Salary__icontains=q)
-    # )
-
-    # context = {'listings': updated_listings}
-    # return render(request, 'search.html', context)
-    #q = request.GET.get('q') if request.GET.get('q') != None else ''
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
 
     # Get initial queryset from database search
-    # listings = Joblisting.objects.filter(
-    #     Q(Title__icontains=q) |
-    #     Q(Company__icontains=q) |
-    #     Q(Location__icontains=q) |
-    #     Q(JobRequirement__icontains=q) |
-    #     Q(RequiredQual__icontains=q) |
-    #     Q(Salary__icontains=q)
-    # )
-    # context = {'listings': listings}
+    listings = Joblisting.objects.filter(
+        Q(Titleicontains=q) |
+        Q(Companyicontains=q) |
+        Q(Locationicontains=q) |
+        Q(JobRequirementicontains=q) |
+        Q(RequiredQualicontains=q) |
+        Q(Salaryicontains=q)
+    )
+
+    # Get all data including id (for our reference) and jobpost
+    full_df = pd.DataFrame.from_records(
+        listings.values(
+            'id', 'jobpost', 'Title', 'Company', 'StartDate', 'Duration', 'Location',
+            'JobDescription', 'JobRequirment', 'RequiredQual', 
+            'Salary', 'AboutC'
+        )
+    )
+
+    if not full_df.empty:
+        # Create a new DataFrame with only the columns the model expects
+        model_df = full_df[['jobpost', 'Title', 'Company', 'StartDate', 'Duration', 'Location',
+                           'JobDescription', 'JobRequirment', 'RequiredQual',
+                            'Salary', 'AboutC']]
+
+    # Convert DataFrame to CSV string
+    csv_buffer = StringIO()
+    model_df.to_csv(csv_buffer, index=False)
+    csv_data = csv_buffer.getvalue()
+
+    # Get predictions from AI model
+    result_csv = predict_job_listings(csv_data)
+
+    # Convert result CSV back to DataFrame
+    result_df = pd.read_csv(StringIO(result_csv))
+
+    # Update Prediction field in database for each listing
+    for index, row in result_df.iterrows():
+        listing_id = full_df.iloc[index]['id'] # Convert to string since Prediction field is CharField
+        prediction = str(row['prediction'])
+
+    Joblisting.objects.filter(id=listing_id).update(Prediction=prediction)
+
+    # Get fresh listings from database with updated predictions
+    updated_listings = Joblisting.objects.filter(
+        Q(Titleicontains=q) |
+        Q(Companyicontains=q) |
+        Q(Locationicontains=q) |
+        Q(JobRequirementicontains=q) |
+        Q(RequiredQualicontains=q) |
+        Q(Salaryicontains=q)
+    )
+
+    context = {'listings': updated_listings}
+    return render(request, 'search.html', context)
+#    q = request.GET.get('q') if request.GET.get('q') != None else ''
+
+    # Get initial queryset from database search
+#    listings = Joblisting.objects.filter(
+#        Q(Titleicontains=q) |
+#        Q(Companyicontains=q) |
+#        Q(Locationicontains=q) |
+#        Q(JobRequirementicontains=q) |
+#        Q(RequiredQualicontains=q) |
+#        Q(Salaryicontains=q)
+#    )
+#    context = {'listings': listings}
 
 
-#   return render(request, 'search.html', context)
-    return render(request, 'search.html')
+    return render(request, 'search.html', context)
 
 def terms_service(request):
     return render(request, 'terms_service.html')
@@ -112,19 +110,16 @@ def main(request):
 
 
 def register_view(request):
-    from .forms import RegisterForm
-    form = None
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            user = form.save
             messages.success(request, "Registration successful!")
             return redirect('home')
         else:
-            messages.error(request, "Registration failed. Please correct the errors.")
-    else:        
-        form = RegisterForm()
-    
+            messages.error(request, "Registration failed. Please try again.")
+    else:
+        form = RegisterForm()  
     return render(request, 'register.html', {'form': form})
 
 def login_view(request):
