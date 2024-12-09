@@ -119,7 +119,7 @@
     <div class="results">
       <h3>Job Results</h3>
 
-      {% for joblisting in listings %}
+<!--      % for Joblisting in listings % 
         <div class="job-card">
           <h4>{{ job.title }}</h4>
           <p><strong>Company:</strong> {{ job.company }}</p>
@@ -130,8 +130,9 @@
           <p><strong>Duration:</strong> {{ job.duration }}</p>
           <p><strong>Requirements:</strong> {{ job.job_requirements }}</p>
           <p><strong>Qualifications:</strong> {{ job.required_qualifications }}</p>
+          <p><strong>Status:</strong> {{job.prediction}}</span></p>
         </div>
-      {% empty %}
+   % empty % -->
             <!-- Results Section -->
             <div class="results">
               <h3>Job Results</h3>
@@ -153,7 +154,7 @@
               </div>
             </div>
             </div>
-      {% endfor %}
+<!---      % endfor % -->
     </div>
     </div>
   </div>
