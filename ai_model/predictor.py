@@ -30,6 +30,9 @@ class JobListingPredictor:
 
     @staticmethod
     def load_model(model_path):
+        if not os.path.exist(model_path):
+            raise FileNotFoundError(f"Model file not found: {model_path}")
+        
         model = JobListingClassifier(metadata_size=2)
         model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
         return model

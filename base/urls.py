@@ -4,8 +4,7 @@ from . import views
 
 urlpatterns = [
     # Home and main pages
-    path('', views.landing, name='landing'),
-    path('home/', views.home, name='home'),
+    path('', views.home, name='home'),
     path('main/', views.main, name='main'),
 
     # User authentication
@@ -15,7 +14,7 @@ urlpatterns = [
 
     # Additional pages
     path('search/', views.search, name='search'),
-    path('terms_service/', views.terms_service, name='terms_service'),
+    path('terms_service', views.terms_service, name='terms_service'),
     path('jobs/', views.job_list, name='job_list'),
     path('profiles/', views.profiles, name='profiles'),
 ]
